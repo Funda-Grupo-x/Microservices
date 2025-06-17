@@ -21,7 +21,7 @@
     <modules>
         <module>eureka-service</module>
         <module>iam-service</module>
-
+        <module>config-service</module>
     </modules>
 
 
