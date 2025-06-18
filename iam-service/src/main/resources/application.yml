@@ -42,6 +42,6 @@ eureka:
 
 authorization:
   jwt:
-    secret: ${JWT_SECRET}
+    secret: 4f1feeca525de4cdb064656007da3edac7895a87ff0ea865693300fb8b6e8f9c
     expiration:
       days: 31

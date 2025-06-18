@@ -35,11 +35,6 @@ public class User extends AuditableAbstractAggregateRoot<User> {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @ElementCollection
-    @CollectionTable(name = "user_notification_ids", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "notification_id")
-    private List<Long> notificationIds = new ArrayList<>();
-
     public User() {
         this.roles = new HashSet<>();
     }
@@ -48,7 +43,6 @@ public class User extends AuditableAbstractAggregateRoot<User> {
         this.username = username;
         this.password = password;
         this.roles = new HashSet<>();
-        this.notificationIds = new ArrayList<>();
     }
 
     public User(String username, String password, List<Role> roles) {
