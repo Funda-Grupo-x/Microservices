@@ -20,7 +20,6 @@ import java.util.Set;
 public class User extends AuditableAbstractAggregateRoot<User> {
 
     @NotBlank(message = "Username is required")
-    @Email(message = "Username must be an email")
     @Size(max = 50, message = "Username must be less than 50 characters")
     @Column(unique = true)
     private String username;
