@@ -1,0 +1,47 @@
+server:
+  port: 8094
+
+spring:
+  security:
+    user:
+      name: admin
+      password: 12345678
+      roles: ADMIN,USER
+  config:
+    import: configserver:http://localhost:8888
+  application:
+    name: issue-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/issuedb?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 12345678
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: pe.edu.upc.managewise.issueservice.shared.infrastructure.persistence.jpa.configuration.strategy.SnakeCaseWithPluralizedTablePhysicalNamingStrategy
+    open-in-view: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+    status-page-url-path: /swagger-ui/index.html
+
+authorization:
+  jwt:
+    secret: 4f1feeca525de4cdb064656007da3edac7895a87ff0ea865693300fb8b6e8f9c
+    expiration:
+      days: 31

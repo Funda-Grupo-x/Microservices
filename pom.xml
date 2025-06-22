@@ -23,6 +23,7 @@
         <module>iam-service</module>
         <module>config-service</module>
         <module>gateway-service</module>
+        <module>issue-service</module>
     </modules>
 
 
