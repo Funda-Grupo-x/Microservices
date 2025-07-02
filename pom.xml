@@ -23,6 +23,7 @@
         <module>iam-service</module>
         <module>config-service</module>
         <module>gateway-service</module>
+        <module>backlog-service</module>
     </modules>
 
 
